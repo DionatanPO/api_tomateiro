@@ -24,8 +24,17 @@ public class Produtor {
     private String propriedade;
     private String codIdentificacao;
     private String senha;
+    private String estado;
 
     public Produtor() {
+    }
+
+    public String getEstado() {
+        return estado;
+    }
+
+    public void setEstado(String estado) {
+        this.estado = estado;
     }
 
     public Long getId() {

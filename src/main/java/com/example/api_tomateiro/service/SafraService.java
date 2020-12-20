@@ -1,5 +1,6 @@
 package com.example.api_tomateiro.service;
 
+import com.example.api_tomateiro.model.Produtor;
 import com.example.api_tomateiro.model.Safra;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -30,6 +31,10 @@ public class SafraService {
         return safraRepository.findAll();
     }
 
+    public Safra BuscarSafraPorProdutorAtivo(Produtor produtor) {
 
+        return safraRepository.findSafraByProdutor_id(produtor.getId()).get(0);
+
+    }
 
 }

@@ -13,46 +13,46 @@ import java.util.List;
 @RestController
 @RequestMapping(value = "/produtor/")
 public class ProdutorController {
-
+    
     @Autowired
     ProdutorService produtorService;
-
+    
     @PostMapping()
     public ResponseEntity<Produtor> cadastrar(@RequestBody Produtor produtor) {
-
-
+        produtor.setEstado("Ativo");
         Produtor produtorSalvo = produtorService.salvar(produtor);
-
+        produtorSalvo.setSenha("");
+        
         return new ResponseEntity<>(produtorSalvo, HttpStatus.CREATED);
     }
-
+    
     @PutMapping(value = "{id}")
     public ResponseEntity<Produtor> editar(@RequestBody Produtor produtor) {
-
+        
         Produtor produtorSalvo = produtorService.salvar(produtor);
-
+        
         return ResponseEntity.ok(produtorSalvo);
     }
-
+    
     @DeleteMapping(value = "{id}")
     public ResponseEntity deletar(@PathVariable Long id) {
-
+        
         Produtor produtor = new Produtor();
         produtor.setId(id);
         produtorService.delete(produtor);
-
+        
         return ResponseEntity.ok().build();
-
+        
     }
-
+    
     @GetMapping(value = "todos")
     public ResponseEntity<List<Produtor>> mostrarTodos() {
-
+        
         List produtorList = produtorService.buscarTodos();
-
+        
         return new ResponseEntity<>(produtorList, HttpStatus.OK);
     }
-
+    
     @GetMapping(value = "{id}")
     public ResponseEntity<Produtor> buscaPorID(@PathVariable Long id) {
         try {
@@ -61,5 +61,13 @@ public class ProdutorController {
             return ResponseEntity.notFound().build();
         }
     }
-
+    
+    @PostMapping(value = "login/")
+    @ResponseBody
+    public ResponseEntity<Produtor> login(@RequestBody Produtor produtor) {
+     
+        produtor = produtorService.login(produtor);
+        
+        return new ResponseEntity<>(produtor, HttpStatus.OK);
+    }
 }

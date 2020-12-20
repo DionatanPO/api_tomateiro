@@ -1,5 +1,6 @@
 package com.example.api_tomateiro.controller;
 
+import com.example.api_tomateiro.model.Produtor;
 import com.example.api_tomateiro.model.Safra;
 import com.example.api_tomateiro.service.SafraService;
 
@@ -19,8 +20,7 @@ public class SafraController {
 
     @PostMapping()
     public ResponseEntity<Safra> cadastrar(@RequestBody Safra safra) {
-
-
+          safra.setEstado("Ativo");
         Safra safraSalvo = safraService.salvar(safra);
 
         return new ResponseEntity<>(safraSalvo, HttpStatus.CREATED);
@@ -62,4 +62,10 @@ public class SafraController {
         }
     }
 
+    @PostMapping(value = "buscarSafraAtiva/")
+    @ResponseBody
+    public ResponseEntity<Safra> login(@RequestBody Produtor produtor) {
+
+        return new ResponseEntity<>(safraService.BuscarSafraPorProdutorAtivo(produtor), HttpStatus.OK);
+    }
 }

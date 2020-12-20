@@ -30,6 +30,11 @@ public class ProdutorService {
         return produtorRepository.findAll();
     }
 
-
+    public Produtor login(Produtor  produtor) {
+        produtor = produtorRepository.findProdutorByCodIdentificacaoAndSenha(
+                produtor.getCodIdentificacao(),produtor.getSenha()).get(0);
+        produtor.setSenha("");
+        return produtor;
+    }
 
 }
