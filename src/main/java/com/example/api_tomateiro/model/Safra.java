@@ -54,7 +54,7 @@ public class Safra {
     private String estado;
 
     @OneToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REMOVE})
-    @JoinColumn(name = "produtor_id")
+    @JoinColumn(name = "safra_id")
     private List<Venda> vendas;
 
     public Safra() {
