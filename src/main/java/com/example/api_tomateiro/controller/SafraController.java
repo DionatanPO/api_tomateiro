@@ -62,10 +62,11 @@ public class SafraController {
         }
     }
 
-    @PostMapping(value = "buscarSafraAtiva/")
-    @ResponseBody
-    public ResponseEntity<Safra> login(@RequestBody Produtor produtor) {
+    @GetMapping(value = "buscarSafraAtiva/{id}/{estado}")
+    public ResponseEntity<List<Safra>> login(@PathVariable Long id, @PathVariable String estado) {
+        Produtor produtor= new Produtor();
+        produtor.setId(id);
 
-        return new ResponseEntity<>(safraService.BuscarSafraPorProdutorAtivo(produtor), HttpStatus.OK);
+        return new ResponseEntity<>(safraService.BuscarSafraPorProdutorAtivo(produtor, estado), HttpStatus.OK);
     }
 }

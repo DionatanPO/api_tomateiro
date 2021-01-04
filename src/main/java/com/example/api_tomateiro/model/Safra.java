@@ -1,5 +1,6 @@
 package com.example.api_tomateiro.model;
 
+import com.example.tomateiro.model.Estrutura;
 import java.text.NumberFormat;
 import java.text.ParseException;
 import java.util.List;
@@ -20,8 +21,8 @@ public class Safra {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "custoA_id", referencedColumnName = "id")
+    @OneToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REMOVE})
+    @JoinColumn(name = "custoA_id")
     private CustoA custoA;
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "custoB_id", referencedColumnName = "id")
@@ -32,7 +33,6 @@ public class Safra {
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "custoD_id", referencedColumnName = "id")
     private CustoD custoD;
-
     @OneToOne()
     @JoinColumn(name = "produtor_id", referencedColumnName = "id")
     private Produtor produtor;
@@ -52,10 +52,15 @@ public class Safra {
     private String pesoMedioCaixas;
     private String clicloAno;
     private String estado;
+    private String data;
 
     @OneToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REMOVE})
     @JoinColumn(name = "safra_id")
     private List<Venda> vendas;
+
+    @OneToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REMOVE})
+    @JoinColumn(name = "safra_id")
+    private List<Estrutura> estruturas;
 
     public Safra() {
     }
@@ -172,6 +177,14 @@ public class Safra {
         return r;
     }
 
+    public List<Estrutura> getEstruturas() {
+        return estruturas;
+    }
+
+    public void setEstruturas(List<Estrutura> estruturas) {
+        this.estruturas = estruturas;
+    }
+
     public CustoA getCustoA() {
         return custoA;
     }
@@ -186,6 +199,14 @@ public class Safra {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public String getData() {
+        return data;
+    }
+
+    public void setData(String data) {
+        this.data = data;
     }
 
     public CustoB getCustoB() {
@@ -340,5 +361,4 @@ public class Safra {
         this.vendas = vendas;
     }
 
-   
 }

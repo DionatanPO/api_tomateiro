@@ -16,4 +16,9 @@ public interface ProdutorRepository extends JpaRepository<Produtor, Long> {
     @Query(value = "SELECT * FROM Produtor p WHERE p.estado='Ativo' AND p.cod_identificacao=?1 AND p.senha =?2", nativeQuery = true)
     List<Produtor> findProdutorByCodIdentificacaoAndSenha(String cod_identificacao, String senha);
 
+     @Modifying
+    @Transactional
+    @Query(value = "SELECT * FROM Produtor p WHERE p.cod_identificacao=?1", nativeQuery = true)
+    List<Produtor> findProdutorByCodIdentificacao(Long cod_identificacao);
+    
 }

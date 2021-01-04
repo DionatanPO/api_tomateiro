@@ -11,9 +11,9 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface SafraRepository extends JpaRepository<Safra, Long> {
 
-  @Modifying
+    @Modifying
     @Transactional
-    @Query(value = "SELECT * FROM Safra s WHERE s.estado='Ativo' AND s.produtor_id=?1", nativeQuery = true)
-    List<Safra> findSafraByProdutor_id(long produtor_id);
+    @Query(value = "SELECT * FROM Safra s WHERE s.estado=?1 AND s.produtor_id=?2", nativeQuery = true)
+    List<Safra> findSafraByProdutor_id(String estado, long produtor_id);
 
 }

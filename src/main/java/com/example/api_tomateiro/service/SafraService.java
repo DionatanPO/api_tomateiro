@@ -31,9 +31,10 @@ public class SafraService {
         return safraRepository.findAll();
     }
 
-    public Safra BuscarSafraPorProdutorAtivo(Produtor produtor) {
-
-        return safraRepository.findSafraByProdutor_id(produtor.getId()).get(0);
+    public List<Safra> BuscarSafraPorProdutorAtivo(Produtor produtor, String estado) {
+       
+     
+        return  safraRepository.findSafraByProdutor_id(estado, produtor.getId());
 
     }
 
