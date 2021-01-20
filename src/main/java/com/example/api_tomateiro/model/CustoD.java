@@ -36,37 +36,7 @@ public class CustoD {
     public CustoD() {
     }
 
-    public CustoD calcularSubTotal(CustoD c) {
-        Double resultadoCalculo
-                = parseToDouble(c.getArrendamentoV())
-                + parseToDouble(c.getMoAdministrativaV())
-                + parseToDouble(c.getContabilidadeEscritorioV())
-                + parseToDouble(c.getLuzTelefoneV())
-                + parseToDouble(c.getViagensV())
-                + parseToDouble(c.getOutrosV())
-                + parseToDouble(c.getImpostosTaxasV());
-
-        String value = String.format("%,.2f", resultadoCalculo);
-
-        c.setSubTotalD(value);
-        return c;
-    }
-
-    public double parseToDouble(String s) {
-        double value = 0;
-
-        s = s.substring(1, s.length());
-
-        NumberFormat format = NumberFormat.getInstance();
-
-        try {
-            value = format.parse(s).doubleValue();
-        } catch (ParseException e) {
-            e.printStackTrace();
-        }
-
-        return value;
-    }
+ 
 
     public Long getId() {
         return id;

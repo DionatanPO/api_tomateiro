@@ -1,6 +1,5 @@
 package com.example.api_tomateiro.model;
 
-import com.example.tomateiro.model.Estrutura;
 import java.text.NumberFormat;
 import java.text.ParseException;
 import java.util.List;

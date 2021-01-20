@@ -56,42 +56,7 @@ public class CustoA {
     public CustoA() {
     }
 
-    public CustoA calcularSubTotal(CustoA c) {
-        Double resultadoCalculo
-                = parseToDouble(c.getAracaoV())
-                + parseToDouble(c.getAdubacaoBasicaV())
-                + parseToDouble(c.getAdubacaoCoberturaV())
-                + parseToDouble(c.getAplicacaoEstercoV())
-                + parseToDouble(c.getCalagemV())
-                + parseToDouble(c.getColheitaClassificacaoV())
-                + parseToDouble(c.getGradeacaoV())
-                + parseToDouble(c.getSubsolagemV())
-                + parseToDouble(c.getPulverizacaoV())
-                + parseToDouble(c.getIrrigacoesV())
-                + parseToDouble(c.getOutrosAV())
-                + parseToDouble(c.getSulcamentoV());
-
-        String value = String.format("%,.2f", resultadoCalculo);
-        c.setSubTotalA(value);
-        return c;
-    }
-
-    public double parseToDouble(String s) {
-        double value = 0;
-
-        s = s.substring(1, s.length());
-
-        NumberFormat format = NumberFormat.getInstance();
-
-        try {
-            value = format.parse(s).doubleValue();
-        } catch (ParseException e) {
-            e.printStackTrace();
-        }
-
-        return value;
-    }
-
+ 
     public Long getId() {
         return id;
     }

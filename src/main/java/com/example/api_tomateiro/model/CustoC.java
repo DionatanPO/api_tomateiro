@@ -22,10 +22,6 @@ public class CustoC {
     private String yorinQ;
     private String sementesQ;
     private String confeccaoMudasQ;
-    private String estacasBambuQ;
-    private String mouroesEucaQ;
-    private String arame16Q;
-    private String arame20Q;
     private String fungicidasQ;
     private String herbicidasQ;
     private String inseticidasQ;
@@ -40,10 +36,6 @@ public class CustoC {
     private String yorinV;
     private String sementesV;
     private String confeccaoMudasV;
-    private String estacasBambuV;
-    private String mouroesEucaV;
-    private String arame16V;
-    private String arame20V;
     private String fungicidasV;
     private String herbicidasV;
     private String inseticidasV;
@@ -56,49 +48,6 @@ public class CustoC {
     public CustoC() {
     }
 
-    public CustoC calcularSubTotal(CustoC c) {
-        Double resultadoCalculo
-                = parseToDouble(c.getCalcarioDolomiticoV())
-                + parseToDouble(c.getSulfatoAmonioV())
-                + parseToDouble(c.getSuperfosfatoSimplesV())
-                + parseToDouble(c.getSuperfosfatoSimplesV())
-                + parseToDouble(c.getCloretoPotassioV())
-                + parseToDouble(c.getEstercoBovinoV())
-                + parseToDouble(c.getYorinV())
-                + parseToDouble(c.getSementesV())
-                + parseToDouble(c.getConfeccaoMudasV())
-                + parseToDouble(c.getEstacasBambuV())
-                + parseToDouble(c.getMouroesEucaV())
-                + parseToDouble(c.getArame16V())
-                + parseToDouble(c.getArame20V())
-                + parseToDouble(c.getFungicidasV())
-                + parseToDouble(c.getHerbicidasV())
-                + parseToDouble(c.getInseticidasV())
-                + parseToDouble(c.getOutrosProdutosQuimicosV())
-                + parseToDouble(c.getOutrosV());
-
-        String value = String.format("%,.2f", resultadoCalculo);
-
-        c.setSubTotalC(value);
-        return c;
-    }
-
-    public double parseToDouble(String s) {
-        double value = 0;
-
-        s = s.substring(1, s.length());
-
-        NumberFormat format = NumberFormat.getInstance();
-
-        try {
-            value = format.parse(s).doubleValue();
-        } catch (ParseException e) {
-            e.printStackTrace();
-        }
-
-        return value;
-    }
-
     public Long getId() {
         return id;
     }
@@ -107,7 +56,6 @@ public class CustoC {
         this.id = id;
     }
 
-    
     public String getCalcarioDolomiticoQ() {
         return calcarioDolomiticoQ;
     }
@@ -170,38 +118,6 @@ public class CustoC {
 
     public void setConfeccaoMudasQ(String confeccaoMudasQ) {
         this.confeccaoMudasQ = confeccaoMudasQ;
-    }
-
-    public String getEstacasBambuQ() {
-        return estacasBambuQ;
-    }
-
-    public void setEstacasBambuQ(String estacasBambuQ) {
-        this.estacasBambuQ = estacasBambuQ;
-    }
-
-    public String getMouroesEucaQ() {
-        return mouroesEucaQ;
-    }
-
-    public void setMouroesEucaQ(String mouroesEucaQ) {
-        this.mouroesEucaQ = mouroesEucaQ;
-    }
-
-    public String getArame16Q() {
-        return arame16Q;
-    }
-
-    public void setArame16Q(String arame16Q) {
-        this.arame16Q = arame16Q;
-    }
-
-    public String getArame20Q() {
-        return arame20Q;
-    }
-
-    public void setArame20Q(String arame20Q) {
-        this.arame20Q = arame20Q;
     }
 
     public String getFungicidasQ() {
@@ -306,38 +222,6 @@ public class CustoC {
 
     public void setConfeccaoMudasV(String confeccaoMudasV) {
         this.confeccaoMudasV = confeccaoMudasV;
-    }
-
-    public String getEstacasBambuV() {
-        return estacasBambuV;
-    }
-
-    public void setEstacasBambuV(String estacasBambuV) {
-        this.estacasBambuV = estacasBambuV;
-    }
-
-    public String getMouroesEucaV() {
-        return mouroesEucaV;
-    }
-
-    public void setMouroesEucaV(String mouroesEucaV) {
-        this.mouroesEucaV = mouroesEucaV;
-    }
-
-    public String getArame16V() {
-        return arame16V;
-    }
-
-    public void setArame16V(String arame16V) {
-        this.arame16V = arame16V;
-    }
-
-    public String getArame20V() {
-        return arame20V;
-    }
-
-    public void setArame20V(String arame20V) {
-        this.arame20V = arame20V;
     }
 
     public String getFungicidasV() {

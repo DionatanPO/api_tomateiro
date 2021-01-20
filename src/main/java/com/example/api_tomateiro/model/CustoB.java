@@ -25,7 +25,7 @@ public class CustoB {
     private String adubacaoCoberturaQ;
     private String pulverizacaoCostalQ;
     private String capinasManuaisQ;
-    private String colheitaClassificaçãoQ;
+    private String colheitaClassificacaoQ;
     private String irrigacaoQ;
 
     private String colagemV;
@@ -39,7 +39,7 @@ public class CustoB {
     private String adubacaoCoberturaV;
     private String pulverizacaoCostalV;
     private String capinasManuaisV;
-    private String colheitaClassificaçãoV;
+    private String colheitaClassificacaoV;
     private String irrigacaoV;
 
     private String outrosBQ;
@@ -51,43 +51,6 @@ public class CustoB {
     public CustoB() {
     }
 
-    public CustoB calcularSubTotal(CustoB c) {
-        Double resultadoCalculo
-                = parseToDouble(c.getColagemV())
-                + parseToDouble(c.getTransplantioV())
-                + parseToDouble(c.getEstaqueamentoV())
-                + parseToDouble(c.getAmontoaV())
-                + parseToDouble(c.getAmarracaoV())
-                + parseToDouble(c.getAdubacaoBasicaV())
-                + parseToDouble(c.getAplicacaoEstercoV())
-                + parseToDouble(c.getAplicacaoEstercoV())
-                + parseToDouble(c.getDesbrotaV())
-                + parseToDouble(c.getAdubacaoCoberturaV())
-                + parseToDouble(c.getPulverizacaoCostalV())
-                + parseToDouble(c.getCapinasManuaisV())
-                + parseToDouble(c.getIrrigacaoV())
-                + parseToDouble(c.getOutrosBV());
-
-        String value = String.format("%,.2f", resultadoCalculo);
-        c.setSubTotalB(value);
-        return c;
-    }
-
-    public double parseToDouble(String s) {
-        double value = 0;
-
-        s = s.substring(1, s.length());
-
-        NumberFormat format = NumberFormat.getInstance();
-
-        try {
-            value = format.parse(s).doubleValue();
-        } catch (ParseException e) {
-            e.printStackTrace();
-        }
-
-        return value;
-    }
 
     public String getColagemQ() {
         return colagemQ;
@@ -186,13 +149,22 @@ public class CustoB {
         this.capinasManuaisQ = capinasManuaisQ;
     }
 
-    public String getColheitaClassificaçãoQ() {
-        return colheitaClassificaçãoQ;
+    public String getColheitaClassificacaoQ() {
+        return colheitaClassificacaoQ;
     }
 
-    public void setColheitaClassificaçãoQ(String colheitaClassificaçãoQ) {
-        this.colheitaClassificaçãoQ = colheitaClassificaçãoQ;
+    public void setColheitaClassificacaoQ(String colheitaClassificacaoQ) {
+        this.colheitaClassificacaoQ = colheitaClassificacaoQ;
     }
+
+    public String getColheitaClassificacaoV() {
+        return colheitaClassificacaoV;
+    }
+
+    public void setColheitaClassificacaoV(String colheitaClassificacaoV) {
+        this.colheitaClassificacaoV = colheitaClassificacaoV;
+    }
+
 
     public String getIrrigacaoQ() {
         return irrigacaoQ;
@@ -290,13 +262,6 @@ public class CustoB {
         this.capinasManuaisV = capinasManuaisV;
     }
 
-    public String getColheitaClassificaçãoV() {
-        return colheitaClassificaçãoV;
-    }
-
-    public void setColheitaClassificaçãoV(String colheitaClassificaçãoV) {
-        this.colheitaClassificaçãoV = colheitaClassificaçãoV;
-    }
 
     public String getIrrigacaoV() {
         return irrigacaoV;

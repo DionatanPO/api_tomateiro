@@ -1,4 +1,4 @@
-package com.example.tomateiro.model;
+package com.example.api_tomateiro.model;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -14,6 +14,8 @@ public class Estrutura {
     private String nome_item;
     private String valor;
     private String vidaUtil;
+    private String categoria;
+    private String depreciacao;
 
     public Estrutura() {
     }
@@ -21,6 +23,23 @@ public class Estrutura {
     public Long getId() {
         return id;
     }
+
+    public String getCategoria() {
+        return categoria;
+    }
+
+    public void setCategoria(String categoria) {
+        this.categoria = categoria;
+    }
+
+    public String getDepreciacao() {
+        return depreciacao;
+    }
+
+    public void setDepreciacao(String depreciacao) {
+        this.depreciacao = depreciacao;
+    }
+
 
     public void setId(Long id) {
         this.id = id;
