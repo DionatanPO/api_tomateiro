@@ -43,7 +43,7 @@ public class Safra {
     private String resultadoCx;
     private String receitaHa;
     private String margemVenda;
-    private String preçoMedioRecebidoProdutor;
+    private String precoMedioRecebidoProdutor;
     private String regiaoReferencia;
     private int qtdePes;
     private int qtdeCaixas;
@@ -96,7 +96,7 @@ public class Safra {
             resultado += parse2(s.getVendas().get(i).getPreco());
         }
         double x = ((double) resultado / 100) / s.getVendas().size();
-        s.setPreçoMedioRecebidoProdutor(String.format("%,.2f", x));
+        s.setPrecoMedioRecebidoProdutor(String.format("%,.2f", x));
         return s;
     }
 
@@ -128,7 +128,7 @@ public class Safra {
     }
 
     public Safra calcularReceita(Safra s) {
-        long resultado = parse2(s.getPreçoMedioRecebidoProdutor()) * s.getQtdeCaixas();
+        long resultado = parse2(s.getPrecoMedioRecebidoProdutor()) * s.getQtdeCaixas();
         double x = (double) resultado / 100;
         s.setReceitaHa(String.format("%,.2f", x));
         return s;
@@ -142,7 +142,7 @@ public class Safra {
     }
 
     public Safra calcularResultadoCx(Safra s) {
-        long resultado = parse2(s.getPreçoMedioRecebidoProdutor()) - parse2(s.getCustoTotalCa());
+        long resultado = parse2(s.getPrecoMedioRecebidoProdutor()) - parse2(s.getCustoTotalCa());
         double x = (double) resultado / 100;
         s.setResultadoCx(String.format("%,.2f", x));
         return s;
@@ -296,12 +296,12 @@ public class Safra {
         this.margemVenda = margemVenda;
     }
 
-    public String getPreçoMedioRecebidoProdutor() {
-        return preçoMedioRecebidoProdutor;
+    public String getPrecoMedioRecebidoProdutor() {
+        return precoMedioRecebidoProdutor;
     }
 
-    public void setPreçoMedioRecebidoProdutor(String preçoMedioRecebidoProdutor) {
-        this.preçoMedioRecebidoProdutor = preçoMedioRecebidoProdutor;
+    public void setPrecoMedioRecebidoProdutor(String precoMedioRecebidoProdutor) {
+        this.precoMedioRecebidoProdutor = precoMedioRecebidoProdutor;
     }
 
     public String getRegiaoReferencia() {
